@@ -1,0 +1,17 @@
+---
+- name: create directory for selenium
+  shell: mkdir -p {{ selenium_dir }} creates={{ selenium_dir }}
+
+- include: selenium.yml
+
+- include: chromedriver.yml
+  when: with_chromedriver
+
+- include: phantomjs.yml
+  when: with_phantomjs
+
+- name: create init script
+  template:
+    src=selenium.j2
+    dest=/etc/init.d/selenium
+    owner=root group=root mode=0755

@@ -1,0 +1,8 @@
+---
+- name: prepare selenium
+  hosts: all
+  user: vagrant
+  sudo: yes
+  roles:
+  - java
+  - selenium
