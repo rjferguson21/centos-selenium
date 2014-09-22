@@ -1,0 +1,6 @@
+---
+
+- name: Enable Yum repo for Google Chrome
+  copy: dest=/etc/yum.repos.d/google-chrome.repo src=../repos/google-chrome.repo
+- name: Install Google Chrome
+  yum: name=google-chrome-stable state=present

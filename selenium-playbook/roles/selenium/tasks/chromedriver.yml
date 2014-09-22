@@ -15,3 +15,6 @@
 
 - name: copy executable file for chromedriver
   shell: cp {{ tmp_dir }}/chromedriver {{ selenium_dir }}/chromedriver-{{ chromedriver_version }}
+
+- name: give ownership to vagrant user
+  file: path={{ selenium_dir }}/chromedriver-{{ chromedriver_version }} owner=vagrant group=vagrant

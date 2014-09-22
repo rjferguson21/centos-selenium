@@ -1,9 +1,11 @@
 ---
-selenium_version: 2.41.0
+user: vagrant
+selenium_version: 2.43.1
 selenium_port: 4444
-selenium_dir: /opt/selenium
+selenium_dir: /home/{{ user }}/selenium
+selenium_logs: /home/{{ user }}/selenium/logs
 tmp_dir: "{{ selenium_dir }}/tmp"
 with_chromedriver: true
-chromedriver_version: 2.10
+chromedriver_version: "2.10"
 with_phantomjs: true
 phantomjs_version: 1.9.7

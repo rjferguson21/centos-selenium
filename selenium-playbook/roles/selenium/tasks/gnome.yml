@@ -1,0 +1,14 @@
+- name: install the 'Gnome Desktop' package group
+  shell: yum groupinstall -y "Gnome Desktop"
+
+- name: install the 'Gnome Graphical Admin Tools' package group
+  shell: yum groupinstall -y "Graphical Administration Tools"
+
+- name: Enable Gnome on startup
+  shell: ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+
+- name: Set locale
+  shell: localectl set-locale LANG=en_US.utf-8
+
+- name: Set keymap
+  shell: localectl set-keymap us pc105

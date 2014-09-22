@@ -1,0 +1,3 @@
+---
+- name: add test host alias in /etc/hosts file
+  lineinfile: dest=/etc/hosts line='10.0.2.2 e2e.nxtgd.net'
