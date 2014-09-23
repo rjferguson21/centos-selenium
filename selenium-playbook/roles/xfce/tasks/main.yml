@@ -1,0 +1,14 @@
+- name: install the repo package
+  yum: name=http://epel.mirror.nucleus.be/beta/7/x86_64/epel-release-7-1.noarch.rpm state=present
+
+- name: install the 'X Window system' package group
+  shell: yum groupinstall -y "X Window system"
+
+- name: install the 'Xf' package group
+  shell: yum groupinstall -y "xfce"
+
+- name: Enable  on startup
+  shell: ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+
+- name: start xfce
+  shell: init 5

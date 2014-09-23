@@ -12,3 +12,6 @@
 
 - name: Set keymap
   shell: localectl set-keymap us pc105
+
+- name: create run script
+  shell: init 5

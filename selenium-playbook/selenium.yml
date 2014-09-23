@@ -6,3 +6,7 @@
   roles:
   - java
   - selenium
+  - chrome
+  - firefox
+  - gnome
+  # - xfce

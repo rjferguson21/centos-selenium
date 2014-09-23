@@ -5,8 +5,6 @@
 - name: create directory for selenium
   file: path={{ selenium_dir }} owner={{ user }} group={{ user }} state=directory
 
-- include: gnome.yml
-
 - include: selenium.yml
 
 - include: testhost.yml
@@ -16,10 +14,6 @@
 
 - include: phantomjs.yml
   when: with_phantomjs
-
-- include: firefox.yml
-
-- include: chrome.yml
 
 - name: Disable SELINUX
   shell: sed -i "s/^SELINUX=enforcing/SELINUX=disabled/" /etc/selinux/config
@@ -35,6 +29,3 @@
     src=run.sh
     dest={{ selenium_dir }}
     owner={{ user }} group={{ user }} mode=0755
-
-- name: create run script
-  shell: init 5
