@@ -1,2 +1,14 @@
-- name: install the latest version of Firefox
-  yum: name=firefox state=latest
+# - name: install the latest version of Firefox
+#   yum: name=firefox state=latest
+
+- name: download firefox
+  shell: wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/32.0.2/linux-x86_64/en-US/firefox-32.0.2.tar.bz2
+
+- name: extract firefox
+  shell: tar -jxvf firefox-32.0.2.tar.bz2 -C /usr/local/
+
+- name: remove existing if it exists
+  shell: rm -rf /usr/bin/firefox
+
+- name: link new executable
+  shell: ln -sf /usr/local/firefox/firefox /usr/bin/firefox
